@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <link href="./css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="app">
+            <div class="container">
+                <div class="container-card">
+                    <div v-for="(disco,index) in dischi" class="card">
+                        <div class="container-img">
+                            <img :src="disco.immagine" alt="">
+                        </div>
+                        <div class="title">
+                            {{ disco.titolo }} 
+                        </div>
+                        <div class="artista">
+                            {{ disco.artista }} 
+                        </div>
+                        <div class="anno">
+                            {{ disco.anno}} 
+                        </div>
+                        <button @click="chiamataInformazioni()" type="button">ricevi api dati</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.4/vue.global.min.js"></script>
+        <script src="./scripts/main.js"></script>
+    </body>
+</html>
