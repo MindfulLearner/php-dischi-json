@@ -7,27 +7,28 @@
         <link href="./css/style.css" rel="stylesheet">
     </head>
     <body>
-        <div id="app">
-            <div class="container">
-                <div class="container-card">
-                    <div v-for="(disco,index) in dischi" class="card">
-                        <div class="container-img">
-                            <img :src="disco.immagine" alt="">
-                        </div>
-                        <div class="title">
-                            {{ disco.titolo }} 
-                        </div>
-                        <div class="artista">
-                            {{ disco.artista }} 
-                        </div>
-                        <div class="anno">
-                            {{ disco.anno}} 
-                        </div>
-                        <button @click="chiamataInformazioni()" type="button">ricevi api dati</button>
+         <div id="app">
+        <div class="container">
+            <button @click="chiamataInformazioni" type="button">ricevi api dati</button>
+            <div class="container-card">
+                <div v-for="(disco, index) in dischi" class="card">
+                    <div class="container-img">
+                        <img :src="disco.immagine" alt="">
                     </div>
+                    <div :class="{'on': disco.switch, 'off': !disco.switch}" class="title">
+                        {{ disco.titolo }} 
+                    </div>
+                    <div :class="{'on': disco.switch, 'off': !disco.switch}" class="artista">
+                        {{ disco.artista }} 
+                    </div>
+                    <div :class="{'on': disco.switch, 'off': !disco.switch}" class="anno">
+                        {{ disco.anno }} 
+                    </div>
+                    <button @click="vediInfo(index)" type="button">vedi info</button>
                 </div>
             </div>
         </div>
+    </div>
 
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.5.4/vue.global.min.js"></script>
